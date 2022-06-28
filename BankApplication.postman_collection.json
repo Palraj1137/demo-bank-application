@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "f227ad41-0119-4265-adac-521eb58ad57c",
+		"name": "BankApplication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19063368"
+	},
+	"item": [
+		{
+			"name": "Get All Users",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/user/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "f97452b0-dc07-4795-b852-cfe5da110b91",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"MK\",\r\n    \"phone\":\"0090067525\",\r\n    \"email\":\"mK@gmail.com\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Account Detail by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/bank-account/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bank-account",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Bank Account",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountNo\":\"27364273\",\r\n    \"bankName\":\"AXIS\",\r\n    \"balance\":54900.00,\r\n    \"user\":{\r\n        \"userId\":2\r\n    },\r\n    \"bankingService\":[{\r\n    \"bankAccount\":{\r\n        \"accountId\":1\r\n    },\r\n    \"bankingServices\":\"CREDIT_CARD\",\r\n    \"activatedOn\":\"2022-06-22\",\r\n    \"active\":1\r\n    }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/bank-account/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bank-account",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Bank Accounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/bank-accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bank-accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Banking Services",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bankAccount\":{\r\n        \"accountId\":1\r\n    },\r\n    \"bankingServices\":\"MOBILE_BANKING\",\r\n    \"activatedOn\":\"2022-06-22\",\r\n    \"active\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/banking-service",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"banking-service"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Account By Service",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/bank-account?service=MOBILE_BANKING",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bank-account"
+					],
+					"query": [
+						{
+							"key": "service",
+							"value": "MOBILE_BANKING"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
